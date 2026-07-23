@@ -1,6 +1,7 @@
 import React from 'react';
 import { PageTab } from '../types';
 import { LionSealLogo } from './LionSealLogo';
+import { COMPANY_INFO } from '../data/company';
 
 interface FooterProps {
   setActiveTab?: (tab: PageTab) => void;
@@ -86,7 +87,7 @@ export const Footer: React.FC<FooterProps> = ({ setActiveTab, onOpenTrustModal, 
 
           <div>
             <h5>Contact</h5>
-            <a href="mailto:contact@nemeanpartners.qld.one">contact@nemeanpartners.qld.one</a>
+            <a href={`mailto:${COMPANY_INFO.email}?subject=Nemean%20Partners%20Enquiry`}>{COMPANY_INFO.email}</a>
             <button onClick={() => scrollToSection('contact', 'contact')} className="bg-transparent border-0 text-left block text-[13px] text-[#9c9488] hover:text-[#f3ead9] transition-colors mb-2 cursor-pointer">
               Brisbane, QLD 4064
             </button>

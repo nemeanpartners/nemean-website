@@ -9,7 +9,7 @@ export const COMPANY_INFO: CompanyDetails = {
   locationDetails: "Queensland 4064, Australia",
   foundedYear: 2025,
   gstStatus: "ABN active. Currently updating site records post-GST registration finalisation.",
-  email: "contact@nemeanpartners.qld.one",
+  email: "nemeanpartners@gmail.com",
   website: "https://www.nemeanpartners.qld.one"
 };
 

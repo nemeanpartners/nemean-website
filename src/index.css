@@ -1087,12 +1087,27 @@ section {
   color: var(--text-dim);
 }
 
-form.form-card {
+.form-card {
   background: var(--panel);
   border: 1px solid var(--line);
   border-radius: 24px;
   padding: 32px;
   box-shadow: var(--shadow);
+}
+.contact-email-card {
+  display: grid;
+  gap: 24px;
+  max-width: 760px;
+}
+.contact-email-card h3 {
+  color: var(--cream);
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  font-weight: 500;
+  margin: 12px 0 10px;
+}
+.contact-email-card p {
+  color: var(--text-dim);
+  max-width: 620px;
 }
 .form-row {
   margin-bottom: 18px;

@@ -6,6 +6,7 @@ import { AppLogo } from '../components/AppLogo';
 import { LionSealLogo } from '../components/LionSealLogo';
 import { AnimatedCounters } from '../components/AnimatedCounters';
 import { PageTab } from '../types';
+import { COMPANY_INFO } from '../data/company';
 
 interface HomeViewProps {
   setActiveTab: (tab: PageTab) => void;
@@ -112,7 +113,6 @@ const CAPS_DATA = [
 
 export const HomeView: React.FC<HomeViewProps> = ({ logoUrl }) => {
   const [activeFilter, setActiveFilter] = useState('all');
-  const [formSubmitted, setFormSubmitted] = useState(false);
 
   const filterOptions = [
     { label: "All products", value: "all" },
@@ -127,15 +127,6 @@ export const HomeView: React.FC<HomeViewProps> = ({ logoUrl }) => {
   const filteredProducts = PRODUCTS_DATA.filter(
     p => activeFilter === 'all' || p.category === activeFilter
   );
-
-  const handleFormSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setFormSubmitted(true);
-    setTimeout(() => {
-      setFormSubmitted(false);
-      (e.target as HTMLFormElement).reset();
-    }, 2500);
-  };
 
   const scrollToSection = (id: string) => {
     const el = document.getElementById(id);
@@ -385,58 +376,27 @@ export const HomeView: React.FC<HomeViewProps> = ({ logoUrl }) => {
             </p>
           </div>
 
-          <form className="form-card reveal in w-full" onSubmit={handleFormSubmit}>
-            <div className="two-col">
-              <div className="form-row">
-                <label>Name *</label>
-                <input type="text" required placeholder="Full name" />
-              </div>
-              <div className="form-row">
-                <label>Organisation</label>
-                <input type="text" placeholder="Organisation (optional)" />
-              </div>
+          <div className="form-card reveal in w-full contact-email-card">
+            <div>
+              <span className="eyebrow">Direct email</span>
+              <h3>Email Nemean Partners</h3>
+              <p>
+                Send partnership, product, support and general enquiries directly to the Nemean Partners inbox.
+              </p>
             </div>
 
-            <div className="two-col">
-              <div className="form-row">
-                <label>Email *</label>
-                <input type="email" required placeholder="you@organisation.com" />
-              </div>
-              <div className="form-row">
-                <label>Reason for enquiry</label>
-                <select defaultValue="Government and partnerships">
-                  <option>Government and partnerships</option>
-                  <option>WellPath</option>
-                  <option>Product enquiry</option>
-                  <option>Technical support</option>
-                  <option>General enquiry</option>
-                </select>
-              </div>
-            </div>
-
-            <div className="form-row">
-              <label>Message *</label>
-              <textarea rows={5} required placeholder="Tell us about your enquiry..."></textarea>
-            </div>
-
-            <div className="consent-row">
-              <input type="checkbox" id="consent" required />
-              <label htmlFor="consent">
-                I consent to Nemean Partners contacting me regarding this enquiry in line with the privacy policy.
-              </label>
-            </div>
-
-            <button
-              type="submit"
+            <a
               className="btn btn-gold"
-              style={{ width: '100%', justifyContent: 'center', opacity: formSubmitted ? 0.8 : 1 }}
+              href={`mailto:${COMPANY_INFO.email}?subject=Nemean%20Partners%20Enquiry`}
+              style={{ width: '100%', justifyContent: 'center' }}
             >
-              {formSubmitted ? 'Enquiry received ✓' : 'Send enquiry'}
-            </button>
+              Email {COMPANY_INFO.email}
+            </a>
+
             <p className="submit-note">
-              Your enquiry will be securely logged and reviewed by the Nemean Partners team in Brisbane.
+              This opens your email app so your enquiry is sent directly to the Nemean Partners team.
             </p>
-          </form>
+          </div>
         </div>
       </section>
 
