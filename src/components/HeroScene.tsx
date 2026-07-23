@@ -19,32 +19,20 @@ export const HeroScene: React.FC = () => {
     const group = new THREE.Group();
     scene.add(group);
 
-    const coreGeo = new THREE.IcosahedronGeometry(2.15, 1);
-    const coreMat = new THREE.MeshBasicMaterial({ color: 0xc9a34e, wireframe: true, transparent: true, opacity: 0.55 });
+    const coreGeo = new THREE.IcosahedronGeometry(2.05, 1);
+    const coreMat = new THREE.MeshBasicMaterial({ color: 0xc9a34e, wireframe: true, transparent: true, opacity: 0.5 });
     const core = new THREE.Mesh(coreGeo, coreMat);
     group.add(core);
 
     const innerGeo = new THREE.IcosahedronGeometry(1.2, 2);
-    const innerMat = new THREE.MeshBasicMaterial({ color: 0xecd08c, wireframe: true, transparent: true, opacity: 0.3 });
+    const innerMat = new THREE.MeshBasicMaterial({ color: 0xecd08c, wireframe: true, transparent: true, opacity: 0.26 });
     const inner = new THREE.Mesh(innerGeo, innerMat);
     group.add(inner);
 
-    const ringGeo = new THREE.TorusGeometry(3.1, 0.006, 16, 100);
-    const ringMat = new THREE.MeshBasicMaterial({ color: 0x8a6f38, transparent: true, opacity: 0.5 });
-    const ring1 = new THREE.Mesh(ringGeo, ringMat);
-    ring1.rotation.x = Math.PI / 2.4;
-    group.add(ring1);
-
-    const ring2 = new THREE.Mesh(ringGeo, ringMat.clone());
-    ring2.rotation.x = -Math.PI / 3.1;
-    ring2.rotation.y = Math.PI / 5;
-    ring2.scale.setScalar(1.15);
-    group.add(ring2);
-
-    const particleCount = 340;
+    const particleCount = 240;
     const positions = new Float32Array(particleCount * 3);
     for (let i = 0; i < particleCount; i++) {
-      const radius = 3.4 + Math.random() * 4.2;
+      const radius = 3.0 + Math.random() * 3.4;
       const theta = Math.random() * Math.PI * 2;
       const phi = Math.acos(Math.random() * 2 - 1);
       positions[i * 3] = radius * Math.sin(phi) * Math.cos(theta);
@@ -111,8 +99,6 @@ export const HeroScene: React.FC = () => {
       group.rotation.x = targetY * 0.4 + Math.sin(t * 0.15) * 0.05;
       inner.rotation.y = -t * 0.15;
       inner.rotation.x = t * 0.1;
-      ring1.rotation.z = t * 0.05;
-      ring2.rotation.z = -t * 0.04;
 
       particles.rotation.y = t * 0.02;
       accParticles.rotation.y = -t * 0.03;
@@ -149,8 +135,6 @@ export const HeroScene: React.FC = () => {
       coreMat.dispose();
       innerGeo.dispose();
       innerMat.dispose();
-      ringGeo.dispose();
-      ringMat.dispose();
       particleGeo.dispose();
       particleMat.dispose();
       accGeo.dispose();
@@ -158,5 +142,5 @@ export const HeroScene: React.FC = () => {
     };
   }, []);
 
-  return <canvas ref={canvasRef} id="hero-canvas" className="absolute inset-0 w-full h-full z-0" />;
+  return <canvas ref={canvasRef} id="hero-canvas" className="absolute inset-0 w-full h-full z-0 opacity-90" />;
 };

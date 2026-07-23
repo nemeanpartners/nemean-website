@@ -231,6 +231,22 @@ h1, h2, h3, h4 {
   text-align: center;
   padding: 80px 32px 60px;
 }
+.hero-inner::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 49%;
+  width: min(740px, calc(100vw - 56px));
+  height: min(230px, 38vw);
+  transform: translate(-50%, -50%);
+  z-index: -1;
+  border-radius: 999px;
+  background:
+    radial-gradient(ellipse at center, rgba(7, 6, 10, 0.3) 0%, rgba(7, 6, 10, 0.2) 46%, rgba(7, 6, 10, 0.06) 74%, rgba(7, 6, 10, 0) 100%);
+  backdrop-filter: blur(0.75px);
+  -webkit-backdrop-filter: blur(0.75px);
+  pointer-events: none;
+}
 .hero-inner .eyebrow {
   justify-content: center;
   margin-bottom: 26px;
