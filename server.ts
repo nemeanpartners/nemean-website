@@ -1,4 +1,5 @@
 import express from "express";
+import fs from "fs";
 import path from "path";
 import { createServer as createViteServer } from "vite";
 import { GoogleGenAI } from "@google/genai";
@@ -154,8 +155,49 @@ async function startServer() {
     app.use(vite.middlewares);
   } else {
     const distPath = path.join(process.cwd(), "dist");
-    app.use(express.static(distPath));
+    const assetsPath = path.join(distPath, "assets");
+    const currentAsset = (extension: ".js" | ".css") => {
+      if (!fs.existsSync(assetsPath)) return null;
+      return fs
+        .readdirSync(assetsPath)
+        .find((file) => file.startsWith("index-") && file.endsWith(extension));
+    };
+
+    app.use(
+      "/assets",
+      express.static(assetsPath, {
+        fallthrough: true,
+        immutable: true,
+        index: false,
+        maxAge: "1y",
+      })
+    );
+
+    app.get(/^\/assets\/index-[\w-]+\.(js|css)$/, (req, res, next) => {
+      const extension = path.extname(req.path) as ".js" | ".css";
+      const asset = currentAsset(extension);
+      if (!asset) return next();
+
+      res.setHeader("Cache-Control", "private, max-age=0, must-revalidate");
+      if (extension === ".js") res.type("application/javascript");
+      if (extension === ".css") res.type("text/css");
+      return res.sendFile(path.join(assetsPath, asset));
+    });
+
+    app.get("/assets/*", (_req, res) => {
+      res.status(404).type("text/plain").send("Asset not found");
+    });
+
+    app.use(
+      express.static(distPath, {
+        fallthrough: true,
+        index: false,
+        maxAge: 0,
+      })
+    );
+
     app.get("*", (_req, res) => {
+      res.setHeader("Cache-Control", "private, max-age=0, must-revalidate");
       res.sendFile(path.join(distPath, "index.html"));
     });
   }
