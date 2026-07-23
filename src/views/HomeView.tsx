@@ -149,7 +149,7 @@ export const HomeView: React.FC<HomeViewProps> = ({ logoUrl }) => {
 
       {/* ============ HERO SECTION ============ */}
       <section id="hero" className="relative min-h-screen flex items-center pt-[76px] overflow-hidden">
-        <HeroScene logoUrl={logoUrl} />
+        <HeroScene />
         <div className="hero-fade" />
         <div className="hero-inner">
           <span className="eyebrow">Nemean Partners Pty Ltd &middot; Queensland, Australia</span>
