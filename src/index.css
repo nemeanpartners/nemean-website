@@ -298,44 +298,6 @@ h1.hero-title em {
   50% { transform: translate(-50%, 8px); }
 }
 
-/* ---------- MARQUEE STRIP ---------- */
-#strip {
-  border-top: 1px solid var(--line);
-  border-bottom: 1px solid var(--line);
-  background: var(--bg-soft);
-  overflow: hidden;
-  position: relative;
-}
-.marquee-track {
-  display: flex;
-  width: max-content;
-  animation: scrollx 34s linear infinite;
-}
-.marquee-track span {
-  display: inline-flex;
-  align-items: center;
-  gap: 12px;
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 12px;
-  color: var(--text-dim);
-  padding: 18px 40px;
-  white-space: nowrap;
-  letter-spacing: 0.04em;
-}
-.marquee-track span b {
-  color: var(--gold);
-}
-.marquee-track .dot {
-  width: 4px;
-  height: 4px;
-  border-radius: 50%;
-  background: var(--gold-dim);
-}
-@keyframes scrollx {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
-}
-
 /* ---------- SECTION SHARED ---------- */
 section {
   position: relative;

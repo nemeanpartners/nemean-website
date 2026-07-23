@@ -2,6 +2,7 @@ import { doc, getDoc, setDoc, onSnapshot } from 'firebase/firestore';
 import { ref, listAll, getDownloadURL } from 'firebase/storage';
 import { signInAnonymously } from 'firebase/auth';
 import { db, storage, auth, handleFirestoreError, OperationType } from './firebase';
+import { NEMEAN_LOGO_URL, resolveNemeanLogoUrl } from '../data/branding';
 
 export interface AppConfig {
   companyName: string;
@@ -11,7 +12,7 @@ export interface AppConfig {
 
 export const DEFAULT_APP_CONFIG: AppConfig = {
   companyName: 'Nemean Partners',
-  logoUrl: '/nemean_logo.svg',
+  logoUrl: NEMEAN_LOGO_URL,
   updatedAt: new Date().toISOString(),
 };
 
@@ -106,12 +107,13 @@ export async function getOrInitAppConfig(): Promise<AppConfig> {
     }
 
     // Try finding live image in Firebase Storage if default or empty
-    if (!currentConfig.logoUrl || currentConfig.logoUrl === '/nemean_logo.svg') {
+    if (!currentConfig.logoUrl || currentConfig.logoUrl === '/nemean_logo.svg' || currentConfig.logoUrl === NEMEAN_LOGO_URL) {
       const storageUrl = await findStorageLogoUrl();
       if (storageUrl) {
         currentConfig.logoUrl = storageUrl;
       }
     }
+    currentConfig.logoUrl = resolveNemeanLogoUrl(currentConfig.logoUrl);
     return currentConfig;
   } catch (error) {
     handleFirestoreError(error, OperationType.GET, 'config/app');
@@ -129,7 +131,8 @@ export function subscribeAppConfig(onUpdate: (config: AppConfig) => void) {
     configDocRef,
     (snap) => {
       if (snap.exists()) {
-        onUpdate(snap.data() as AppConfig);
+        const config = snap.data() as AppConfig;
+        onUpdate({ ...config, logoUrl: resolveNemeanLogoUrl(config.logoUrl) });
       } else {
         setDoc(configDocRef, DEFAULT_APP_CONFIG).catch((err) => {
           console.warn('Initializing config document in Firestore:', err);
@@ -142,4 +145,3 @@ export function subscribeAppConfig(onUpdate: (config: AppConfig) => void) {
     }
   );
 }
-

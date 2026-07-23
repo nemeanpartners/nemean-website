@@ -6,24 +6,23 @@ import { TrustModal } from './components/TrustModal';
 import { HomeView } from './views/HomeView';
 import { MouseGlow } from './components/MouseGlow';
 import { subscribeAppConfig, findStorageLogoUrl } from './lib/firebaseService';
+import { NEMEAN_LOGO_URL, resolveNemeanLogoUrl } from './data/branding';
 
 export default function App() {
   const [activeTab, setActiveTab] = useState<PageTab>('home');
   const [trustModal, setTrustModal] = useState<TrustModalType>(null);
-  const [logoUrl, setLogoUrl] = useState<string | undefined>();
+  const [logoUrl, setLogoUrl] = useState<string>(NEMEAN_LOGO_URL);
 
   useEffect(() => {
     // 1. Listen for real-time config updates from Firestore
     const unsubscribe = subscribeAppConfig((config) => {
-      if (config.logoUrl) {
-        setLogoUrl(config.logoUrl);
-      }
+      setLogoUrl(resolveNemeanLogoUrl(config.logoUrl));
     });
 
     // 2. Proactively run the Storage folder scan to retrieve and apply the latest logo URL immediately
     findStorageLogoUrl().then((url) => {
       if (url) {
-        setLogoUrl(url);
+        setLogoUrl(resolveNemeanLogoUrl(url));
       }
     }).catch((err) => {
       console.warn('Proactive background storage scan failed:', err);

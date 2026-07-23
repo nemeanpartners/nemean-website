@@ -144,23 +144,12 @@ export const HomeView: React.FC<HomeViewProps> = ({ logoUrl }) => {
     }
   };
 
-  const marqueeItems = [
-    "ABN 55 692 594 228",
-    "ACN 692 594 228",
-    "Brisbane, Queensland",
-    "Founded 2025",
-    "App Store Published",
-    "Responsible AI Governance",
-    "Australian Data Sovereignty",
-    "Cloud-Native Architecture"
-  ];
-
   return (
     <div className="relative bg-[#07060a] text-[#ece7de] font-sans overflow-x-hidden">
 
       {/* ============ HERO SECTION ============ */}
       <section id="hero" className="relative min-h-screen flex items-center pt-[76px] overflow-hidden">
-        <HeroScene />
+        <HeroScene logoUrl={logoUrl} />
         <div className="hero-fade" />
         <div className="hero-inner">
           <span className="eyebrow">Nemean Partners Pty Ltd &middot; Queensland, Australia</span>
@@ -193,18 +182,6 @@ export const HomeView: React.FC<HomeViewProps> = ({ logoUrl }) => {
           <span className="line" />
         </div>
       </section>
-
-      {/* ============ MARQUEE STRIP ============ */}
-      <div id="strip">
-        <div className="marquee-track">
-          {[...marqueeItems, ...marqueeItems, ...marqueeItems].map((item, idx) => (
-            <span key={idx}>
-              <b>{item}</b>
-              <span className="dot" />
-            </span>
-          ))}
-        </div>
-      </div>
 
       {/* ============ ABOUT SECTION ============ */}
       <section id="about">

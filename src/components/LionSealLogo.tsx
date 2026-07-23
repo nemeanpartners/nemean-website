@@ -1,4 +1,5 @@
 import React from 'react';
+import { resolveNemeanLogoUrl } from '../data/branding';
 
 interface LionSealLogoProps {
   size?: number;
@@ -9,15 +10,16 @@ interface LionSealLogoProps {
 
 export const LionSealLogo: React.FC<LionSealLogoProps> = ({ size = 52, showGlow = true, subtext = "PARTNERS", imageUrl }) => {
   const [imgError, setImgError] = React.useState(false);
+  const resolvedImageUrl = resolveNemeanLogoUrl(imageUrl);
 
-  if (imageUrl && !imgError) {
+  if (!imgError) {
     return (
       <div 
         className={`relative flex items-center justify-center shrink-0 rounded-full bg-black overflow-hidden border-2 border-[#e5c158] ${showGlow ? 'drop-shadow-[0_0_20px_rgba(212,175,55,0.5)]' : ''}`}
         style={{ width: size, height: size }}
       >
         <img 
-          src={imageUrl} 
+          src={resolvedImageUrl} 
           alt="Nemean Logo" 
           onError={() => setImgError(true)}
           className="w-full h-full object-cover rounded-full"
@@ -101,4 +103,3 @@ export const LionSealLogo: React.FC<LionSealLogoProps> = ({ size = 52, showGlow 
     </div>
   );
 };
-

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { NEMEAN_LOGO_URL } from '../data/branding';
 
 interface LionLogoProps {
   className?: string;
@@ -18,7 +19,7 @@ export const LionLogo: React.FC<LionLogoProps> = ({ className = '', size = 42, s
         <div className="flex h-full w-full items-center justify-center rounded-full bg-black overflow-hidden border border-amber-500/40">
           {!imgError ? (
             <img
-              src="/nemean_logo.svg"
+              src={NEMEAN_LOGO_URL}
               alt="Nemean Logo"
               onError={() => setImgError(true)}
               className="w-full h-full object-cover rounded-full"
