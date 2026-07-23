@@ -1,0 +1,58 @@
+{
+  "entities": {
+    "AppConfig": {
+      "title": "App Config & Assets",
+      "description": "Stores global app configurations including logo references and company profile data",
+      "type": "object",
+      "properties": {
+        "logoUrl": {
+          "type": "string",
+          "description": "URL or storage reference to the current Nemean logo image"
+        },
+        "companyName": {
+          "type": "string",
+          "description": "Company name"
+        },
+        "updatedAt": {
+          "type": "string",
+          "description": "ISO timestamp of last update"
+        }
+      },
+      "required": ["companyName", "updatedAt"]
+    },
+    "UserProfile": {
+      "title": "User Profile",
+      "description": "Stores user account information",
+      "type": "object",
+      "properties": {
+        "uid": {
+          "type": "string",
+          "description": "Firebase Auth UID"
+        },
+        "email": {
+          "type": "string",
+          "description": "User email address"
+        },
+        "displayName": {
+          "type": "string",
+          "description": "User display name"
+        },
+        "createdAt": {
+          "type": "string",
+          "description": "Account creation timestamp"
+        }
+      },
+      "required": ["uid", "email"]
+    }
+  },
+  "firestore": {
+    "/config/app": {
+      "schema": "AppConfig",
+      "description": "Global application configuration document"
+    },
+    "/users/{userId}": {
+      "schema": "UserProfile",
+      "description": "User profile collection"
+    }
+  }
+}
