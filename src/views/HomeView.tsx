@@ -91,13 +91,26 @@ const PRODUCTS_DATA: ProductItem[] = [
     feats: ["Multi-display remote playlist manager", "Real-time screen health telemetry"],
     tech: ["4K video stream hardware decoding", "Cloud edge offline sync", "Screen health telemetry"],
     initial: "S"
+  },
+  {
+    id: "message-backup",
+    name: "Message Backup",
+    subtitle: "SMS archiving & message export utility",
+    desc: "App Store published utility for backing up, archiving and exporting mobile messages.",
+    category: "Messaging Utility & Security",
+    badge: "App Store Published",
+    badgeColor: "teal",
+    url: "https://apps.apple.com/au/app/message-backup/id6775398900?mt=12",
+    feats: ["Message backup and export workflows", "Searchable archive for personal records"],
+    tech: ["macOS utility app", "Local archive export", "Message management workflow"],
+    initial: "M"
   }
 ];
 
 const UPCOMING_DATA = [
   { id: "washworks", name: "WashWorks", subtitle: "On-demand fleet washing & service management", desc: "Streamlined dispatch and scheduling for fleet washing, mobile detailing and equipment maintenance.", badge: "Coming Soon" },
   { id: "messagewise", name: "MessageWise", subtitle: "Communication clarity & empathy assistant", desc: "A communication intelligence tool helping users phrase messages with clarity and empathy.", badge: "In Development" },
-  { id: "smsbackup", name: "SMSbackup", subtitle: "Automated SMS archiving & compliance utility", desc: "Secure cloud backup and archival utility for mobile messages and compliance export logs.", badge: "Coming Soon" }
+  { id: "assistive-flow", name: "Assistive Flow", subtitle: "Guided accessibility workflow assistant", desc: "A supportive flow builder for accessibility prompts, service navigation and everyday task assistance.", badge: "Coming Soon" }
 ];
 
 const CAPS_DATA = [
@@ -121,7 +134,8 @@ export const HomeView: React.FC<HomeViewProps> = ({ logoUrl }) => {
     { label: "Education", value: "Education & Productivity" },
     { label: "Fleet", value: "Repair Services & Fleet Tech" },
     { label: "Networking", value: "Networking & Discovery" },
-    { label: "Signage", value: "Digital Out-of-Home SaaS" }
+    { label: "Signage", value: "Digital Out-of-Home SaaS" },
+    { label: "Messaging", value: "Messaging Utility & Security" }
   ];
 
   const filteredProducts = PRODUCTS_DATA.filter(

@@ -126,6 +126,28 @@ export const PRODUCTS_LIST: ProductItem[] = [
       "Cloud edge offline sync",
       "Screen health telemetry"
     ]
+  },
+  {
+    id: "message-backup",
+    name: "Message Backup",
+    subtitle: "SMS archiving & message export utility",
+    description: "App Store published utility for backing up, archiving, searching, and exporting mobile messages for personal records.",
+    category: "Messaging Utility & Security",
+    logoUrl: "",
+    statusBadge: "App Store Published",
+    statusBadgeColor: "emerald",
+    isPublishedOnAppStore: true,
+    appStoreUrl: "https://apps.apple.com/au/app/message-backup/id6775398900?mt=12",
+    isFeatured: true,
+    keyFeatures: [
+      "Message backup and export workflows for personal records",
+      "Searchable archive support for stored conversations"
+    ],
+    techCapabilities: [
+      "macOS utility app",
+      "Local archive export",
+      "Message management workflow"
+    ]
   }
 ];
 
@@ -169,22 +191,22 @@ export const UPCOMING_PRODUCTS_LIST: ProductItem[] = [
     ]
   },
   {
-    id: "smsbackup",
-    name: "SMSbackup",
-    subtitle: "Automated SMS archiving & compliance utility",
-    description: "Secure cloud backup and archival utility for mobile messages, compliance export logs, and restoration.",
-    category: "Messaging Utility & Security",
+    id: "assistive-flow",
+    name: "Assistive Flow",
+    subtitle: "Guided accessibility workflow assistant",
+    description: "A supportive flow builder for accessibility prompts, service navigation, and everyday task assistance.",
+    category: "Accessibility & Workflow Support",
     logoUrl: "",
     statusBadge: "Coming Soon",
     statusBadgeColor: "gold",
     isUpcoming: true,
     keyFeatures: [
-      "Encrypted automated SMS & MMS cloud backup",
-      "Searchable conversation archive with PDF/CSV export"
+      "Step-by-step guidance for complex digital tasks",
+      "Accessible prompts and service navigation flows"
     ],
     techCapabilities: [
-      "Zero-knowledge encrypted storage vault",
-      "Background sync worker"
+      "Adaptive workflow templates",
+      "Assistive UX patterns"
     ]
   }
 ];

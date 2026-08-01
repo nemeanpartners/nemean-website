@@ -150,6 +150,7 @@ export const AppLogo: React.FC<AppLogoProps> = ({ id, name, size = 52, isUpcomin
       );
 
     case 'smsbackup':
+    case 'message-backup':
       return (
         <div 
           className="relative flex items-center justify-center rounded-2xl bg-gradient-to-br from-[#d97706] via-[#b45309] to-[#451a03] border border-amber-400/40 shadow-lg shadow-amber-500/20 shrink-0 overflow-hidden"
@@ -157,6 +158,24 @@ export const AppLogo: React.FC<AppLogoProps> = ({ id, name, size = 52, isUpcomin
         >
           <svg className="w-6 h-6 text-amber-100" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
             <path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9z" />
+          </svg>
+        </div>
+      );
+
+    case 'assistive-flow':
+      return (
+        <div
+          className="relative flex items-center justify-center rounded-2xl bg-gradient-to-br from-[#7c3aed] via-[#4f46e5] to-[#172554] border border-violet-400/40 shadow-lg shadow-violet-500/20 shrink-0 overflow-hidden"
+          style={{ width: size, height: size }}
+        >
+          <svg className="w-6 h-6 text-violet-100" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <path d="M12 3v4" />
+            <path d="M12 17v4" />
+            <path d="M5.64 5.64l2.83 2.83" />
+            <path d="M15.53 15.53l2.83 2.83" />
+            <path d="M3 12h4" />
+            <path d="M17 12h4" />
+            <circle cx="12" cy="12" r="4" />
           </svg>
         </div>
       );
