@@ -21,7 +21,7 @@ app.get("/api/health", (_req, res) => {
   res.json({
     status: "ok",
     company: "Nemean Partners Pty Ltd",
-    location: "Brisbane, Australia",
+    location: "Brisbane",
     abn: "55 692 594 228",
     timestamp: new Date().toISOString()
   });

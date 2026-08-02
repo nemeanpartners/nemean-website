@@ -38,7 +38,7 @@ export const ContactView: React.FC = () => {
               <MapPin className="w-5 h-5 text-amber-400 shrink-0 mt-0.5" />
               <div>
                 <span className="text-neutral-500 font-bold block text-[10px] uppercase">Location</span>
-                <span className="font-semibold text-white">{COMPANY_INFO.headquarters} ({COMPANY_INFO.locationDetails})</span>
+                <span className="font-semibold text-white">{COMPANY_INFO.headquarters} · {COMPANY_INFO.locationDetails}</span>
               </div>
             </div>
 
@@ -65,7 +65,7 @@ export const ContactView: React.FC = () => {
             <div className="flex items-start space-x-3 p-3.5 bg-black rounded-2xl border border-neutral-800">
               <ShieldCheck className="w-5 h-5 text-amber-400 shrink-0 mt-0.5" />
               <div>
-                <span className="text-neutral-500 font-bold block text-[10px] uppercase">Australian Business Number</span>
+                <span className="text-neutral-500 font-bold block text-[10px] uppercase">Business Number</span>
                 <span className="font-extrabold text-amber-400 text-sm">ABN: {COMPANY_INFO.abn}</span>
               </div>
             </div>

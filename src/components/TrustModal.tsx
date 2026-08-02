@@ -34,7 +34,7 @@ export const TrustModal: React.FC<TrustModalProps> = ({ type, onClose }) => {
                 <li><strong className="text-amber-200">Bounded Outputs:</strong> AI models run with strict domain constraints and deterministic rule verification.</li>
                 <li><strong className="text-amber-200">Human Oversight:</strong> Critical referrals and recommendations in platforms like WellPath are non-diagnostic and require user confirmation.</li>
                 <li><strong className="text-amber-200">Privacy First:</strong> Personal information is not fed back into foundational public training sets.</li>
-                <li><strong className="text-amber-200">Data Sovereignty:</strong> Cloud workloads and customer database instances reside within secure Australian data center regions.</li>
+                <li><strong className="text-amber-200">Data Governance:</strong> Cloud workloads and customer database instances reside within secure managed environments.</li>
               </ul>
             </div>
           </div>
@@ -48,7 +48,7 @@ export const TrustModal: React.FC<TrustModalProps> = ({ type, onClose }) => {
               <span>Nemean Partners Privacy Policy</span>
             </div>
             <p>
-              Nemean Partners Pty Ltd (ABN 55 692 594 228) is committed to protecting your personal information in accordance with the Australian Privacy Principles (APPs) contained in the Privacy Act 1988 (Cth).
+              Nemean Partners Pty Ltd (ABN 55 692 594 228) is committed to protecting your personal information through clear, secure, and privacy-first handling practices.
             </p>
 
             <h5 className="font-bold text-amber-300 text-xs">1. Information We Collect</h5>
@@ -63,7 +63,7 @@ export const TrustModal: React.FC<TrustModalProps> = ({ type, onClose }) => {
 
             <h5 className="font-bold text-amber-300 text-xs">3. Data Security & Storage</h5>
             <p>
-              All user records are protected using industry-standard TLS encryption in transit and AES-256 encryption at rest, hosted on enterprise-grade cloud infrastructure located in Australia.
+              All user records are protected using industry-standard TLS encryption in transit and AES-256 encryption at rest, hosted on enterprise-grade cloud infrastructure.
             </p>
 
             <h5 className="font-bold text-amber-300 text-xs">4. Contact Privacy Officer</h5>
@@ -96,7 +96,7 @@ export const TrustModal: React.FC<TrustModalProps> = ({ type, onClose }) => {
 
             <h5 className="font-bold text-amber-300 text-xs">3. Governing Law</h5>
             <p>
-              These terms are governed by the applicable laws of Australia. Any disputes shall be handled through the appropriate Australian jurisdiction.
+              These terms are governed by the applicable laws and dispute resolution processes for the operating entity.
             </p>
           </div>
         );
@@ -147,7 +147,7 @@ export const TrustModal: React.FC<TrustModalProps> = ({ type, onClose }) => {
               </div>
               <div>
                 <span className="text-neutral-500 block text-[10px] uppercase">Main Location</span>
-                <span className="text-neutral-200">{COMPANY_INFO.headquarters} ({COMPANY_INFO.locationDetails})</span>
+                <span className="text-neutral-200">{COMPANY_INFO.headquarters} · {COMPANY_INFO.locationDetails}</span>
               </div>
               <div>
                 <span className="text-neutral-500 block text-[10px] uppercase">Founded</span>

@@ -71,7 +71,7 @@ export const CapabilityView: React.FC = () => {
           "Our technical stack includes modern web technologies, managed cloud infrastructure, secure databases, messaging systems and controlled artificial-intelligence services."
         </p>
         <p className="text-xs text-neutral-400">
-          Designed for secure Australian cloud deployment, low latency, and zero single points of failure.
+          Designed for secure cloud deployment, low latency, and zero single points of failure.
         </p>
       </div>
 
@@ -147,9 +147,9 @@ export const CapabilityView: React.FC = () => {
 
           <div className="p-5 bg-black rounded-2xl border border-neutral-800 space-y-2">
             <span className="text-amber-400 font-bold block text-[10px] uppercase">Layer 4: Data Vault</span>
-            <h4 className="font-bold text-white text-sm">Australian Cloud Storage</h4>
+            <h4 className="font-bold text-white text-sm">Secure Cloud Storage</h4>
             <p className="text-[11px] text-neutral-400">
-              AES-256 encrypted relational & document databases hosted in Australian cloud regions.
+              AES-256 encrypted relational & document databases hosted on managed cloud infrastructure.
             </p>
           </div>
 

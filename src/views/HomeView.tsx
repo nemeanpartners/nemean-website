@@ -356,25 +356,8 @@ export const HomeView: React.FC<HomeViewProps> = ({ logoUrl }) => {
       {/* ============ WELLPATH / TECH STACK SECTION ============ */}
       <section id="wellpath">
         <div className="wrap">
-          <div className="wellpath-grid">
-            <div className="stack-banner reveal in" style={{ margin: 0, textAlign: 'left', display: 'flex', flexDirection: 'column', justifyContent: 'center', height: '100%', padding: '40px 32px' }}>
-              <span className="eyebrow" style={{ marginBottom: '16px' }}>Technical Architecture</span>
-              <p className="big" style={{ margin: 0, fontSize: 'clamp(1.15rem, 2.2vw, 1.45rem)', lineHeight: 1.6, maxWidth: '100%' }}>
-                &ldquo;Our technical stack includes modern web technologies, managed cloud infrastructure, secure databases, messaging systems and controlled artificial-intelligence services.&rdquo;
-              </p>
-              <p className="small" style={{ marginTop: '20px', fontSize: '13px', color: 'var(--text-dim)' }}>
-                Designed for secure Australian cloud deployment, low latency, and zero single points of failure.
-              </p>
-            </div>
-
-            <div className="wellpath-visual reveal in">
-              <WellpathScene />
-              <span className="wellpath-badge badge badge-gold">Pilot Platform</span>
-              <div className="wellpath-caption">
-                <b>Encrypted Vault &middot; Automated Follow-ups &middot; Secure Pathways</b>
-                <p>Interactive ecosystem graph mapping verified health programs, encrypted data nodes, and automated referral pathways.</p>
-              </div>
-            </div>
+          <div className="wellpath-visual reveal in">
+            <WellpathScene />
           </div>
         </div>
       </section>

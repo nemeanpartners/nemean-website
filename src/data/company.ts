@@ -2,11 +2,11 @@ import { CompanyDetails } from '../types';
 
 export const COMPANY_INFO: CompanyDetails = {
   legalName: "Nemean Partners Pty Ltd",
-  entityType: "Australian Proprietary Company Limited by Shares",
+  entityType: "Proprietary Company Limited by Shares",
   abn: "55 692 594 228",
   acn: "692 594 228",
   headquarters: "Brisbane",
-  locationDetails: "Australia",
+  locationDetails: "Remote-first",
   foundedYear: 2025,
   gstStatus: "ABN active. Currently updating site records post-GST registration finalisation.",
   email: "nemeanpartners@gmail.com",
@@ -23,7 +23,7 @@ export const HOMEPAGE_STATEMENTS = {
   aboutScale: "Our products are designed for secure cloud deployment, mobile access and future commercial scale.",
 
   companySectionTitle: "Developed with purpose. Designed to scale.",
-  companySectionBody: "Our products are designed, developed and managed using secure, scalable cloud infrastructure. We build configurable technology that can support organisations across Australia and international markets.",
+  companySectionBody: "Our products are designed, developed and managed using secure, scalable cloud infrastructure. We build configurable technology that can support organisations across multiple markets.",
 
   contactCTATitle: "Partner with Nemean",
   contactCTABody: "We welcome enquiries from government, health, education, community and commercial organisations seeking practical digital solutions."

@@ -53,7 +53,7 @@ export const AboutView: React.FC = () => {
             </span>
             <span className="flex items-center space-x-1 bg-amber-950/40 px-3 py-1.5 rounded-lg border border-amber-500/30">
               <Server className="w-4 h-4" />
-              <span>Australian Data Sovereignty</span>
+              <span>Secure Data Governance</span>
             </span>
           </div>
         </div>
@@ -65,7 +65,7 @@ export const AboutView: React.FC = () => {
               <Building2 className="w-6 h-6 text-amber-400" />
               <div>
                 <h3 className="font-bold text-white text-base">Entity Information</h3>
-                <p className="text-xs text-neutral-400">Registered Australian Private Company</p>
+                <p className="text-xs text-neutral-400">Registered Private Company</p>
               </div>
             </div>
 
@@ -143,7 +143,7 @@ export const AboutView: React.FC = () => {
           </div>
           <div className="flex items-center space-x-2">
             <Server className="w-4 h-4 text-amber-600 shrink-0" />
-            <span>Cloud-Native Regional Scalability</span>
+            <span>Cloud-Native Scalability</span>
           </div>
         </div>
       </section>

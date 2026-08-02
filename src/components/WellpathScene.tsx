@@ -14,6 +14,11 @@ const FEATURE_LABELS: LabelInfo[] = [
   { text: 'Closed-Loop Milestone', sub: 'Automated Follow-up', nodeIndex: 18 },
 ];
 
+const seeded = (seed: number) => {
+  const x = Math.sin(seed * 999) * 10000;
+  return x - Math.floor(x);
+};
+
 export const WellpathScene: React.FC = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const overlayRef = useRef<HTMLDivElement>(null);
@@ -42,6 +47,7 @@ export const WellpathScene: React.FC = () => {
 
     const nodeCount = 24;
     const nodes: THREE.Mesh[] = [];
+    const lines: THREE.Line[] = [];
     const group = new THREE.Group();
     scene.add(group);
 
@@ -57,9 +63,11 @@ export const WellpathScene: React.FC = () => {
 
     for (let i = 0; i < nodeCount; i++) {
       const isKey = i < keyPositions.length;
-      const isGold = isKey || Math.random() > 0.4;
+      const isGold = isKey || seeded(i + 30) > 0.4;
       const mat = new THREE.MeshBasicMaterial({
         color: isKey ? 0xf3d37f : (isGold ? 0xecd08c : 0xa082f5),
+        transparent: true,
+        opacity: isKey ? 1 : 0.86,
       });
       const mesh = new THREE.Mesh(nodeGeo, mat);
 
@@ -67,9 +75,9 @@ export const WellpathScene: React.FC = () => {
         mesh.position.copy(keyPositions[i]);
         mesh.scale.set(1.4, 1.4, 1.4);
       } else {
-        const radius = 1.3 + Math.random() * 1.0;
-        const theta = Math.random() * Math.PI * 2;
-        const phi = Math.acos(Math.random() * 2 - 1);
+        const radius = 1.3 + seeded(i + 1) * 1.0;
+        const theta = seeded(i + 10) * Math.PI * 2;
+        const phi = Math.acos(seeded(i + 20) * 2 - 1);
         mesh.position.set(
           radius * Math.sin(phi) * Math.cos(theta),
           radius * Math.sin(phi) * Math.sin(theta),
@@ -81,7 +89,6 @@ export const WellpathScene: React.FC = () => {
     }
 
     // Connect nearest nodes with gold lines
-    const lineMat = new THREE.LineBasicMaterial({ color: 0xe5c158, transparent: true, opacity: 0.3 });
     nodes.forEach((n, i) => {
       const distances = nodes
         .map((m, j) => ({ j, d: n.position.distanceTo(m.position) }))
@@ -90,20 +97,37 @@ export const WellpathScene: React.FC = () => {
       for (let k = 0; k < 2; k++) {
         const target = nodes[distances[k].j];
         const geo = new THREE.BufferGeometry().setFromPoints([n.position, target.position]);
-        group.add(new THREE.Line(geo, lineMat));
+        const lineMat = new THREE.LineBasicMaterial({
+          color: i < keyPositions.length || distances[k].j < keyPositions.length ? 0xf3d37f : 0xc9932f,
+          transparent: true,
+          opacity: i < keyPositions.length || distances[k].j < keyPositions.length ? 0.48 : 0.28,
+        });
+        const line = new THREE.Line(geo, lineMat);
+        lines.push(line);
+        group.add(line);
       }
     });
 
     // Central 3D core wireframe sphere
-    const centerGeo = new THREE.IcosahedronGeometry(0.55, 2);
+    const centerGeo = new THREE.IcosahedronGeometry(0.62, 2);
     const centerMat = new THREE.MeshBasicMaterial({
-      color: 0xe5c158,
+      color: 0xffd75e,
       wireframe: true,
       transparent: true,
-      opacity: 0.65,
+      opacity: 0.88,
     });
     const center = new THREE.Mesh(centerGeo, centerMat);
     group.add(center);
+
+    const outerGeo = new THREE.IcosahedronGeometry(0.82, 1);
+    const outerMat = new THREE.MeshBasicMaterial({
+      color: 0xc9932f,
+      wireframe: true,
+      transparent: true,
+      opacity: 0.42,
+    });
+    const outer = new THREE.Mesh(outerGeo, outerMat);
+    group.add(outer);
 
     // Inner glowing core sphere
     const innerCoreGeo = new THREE.SphereGeometry(0.25, 16, 16);
@@ -114,6 +138,17 @@ export const WellpathScene: React.FC = () => {
     });
     const innerCore = new THREE.Mesh(innerCoreGeo, innerCoreMat);
     group.add(innerCore);
+
+    const glowGeo = new THREE.SphereGeometry(0.42, 24, 24);
+    const glowMat = new THREE.MeshBasicMaterial({
+      color: 0xffdf82,
+      transparent: true,
+      opacity: 0.18,
+      blending: THREE.AdditiveBlending,
+      depthWrite: false,
+    });
+    const glow = new THREE.Mesh(glowGeo, glowMat);
+    group.add(glow);
 
     let vis = true;
     const obs = new IntersectionObserver(
@@ -162,9 +197,12 @@ export const WellpathScene: React.FC = () => {
 
         center.rotation.y = -t * 0.3;
         center.rotation.x = t * 0.2;
+        outer.rotation.y = t * 0.22;
+        outer.rotation.x = -t * 0.16;
         
         const pulse = 1 + Math.sin(t * 3) * 0.08;
         innerCore.scale.set(pulse, pulse, pulse);
+        glow.scale.setScalar(1.05 + Math.sin(t * 2.4) * 0.08);
 
         renderer.render(scene, camera);
 
@@ -207,24 +245,33 @@ export const WellpathScene: React.FC = () => {
       window.removeEventListener('resize', resize);
       renderer.dispose();
       nodeGeo.dispose();
-      lineMat.dispose();
+      nodes.forEach((node) => (node.material as THREE.Material).dispose());
+      lines.forEach((line) => {
+        line.geometry.dispose();
+        (line.material as THREE.Material).dispose();
+      });
       centerGeo.dispose();
       centerMat.dispose();
+      outerGeo.dispose();
+      outerMat.dispose();
       innerCoreGeo.dispose();
       innerCoreMat.dispose();
+      glowGeo.dispose();
+      glowMat.dispose();
     };
   }, []);
 
   return (
-    <div className="relative w-full h-full min-h-[380px] sm:min-h-[440px] overflow-hidden select-none">
+    <div className="vault-card relative w-full overflow-hidden select-none">
       <canvas ref={canvasRef} id="wellpath-canvas" className="w-full h-full block" />
+      <span className="wellpath-badge badge badge-gold">Pilot Platform</span>
 
       {/* HTML 3D Projected Node Overlay Labels */}
-      <div ref={overlayRef} className="absolute inset-0 pointer-events-none z-10">
+      <div ref={overlayRef} className="absolute inset-0 pointer-events-none z-10 vault-labels">
         {FEATURE_LABELS.map((label, i) => (
           <div
             key={i}
-            className="absolute top-0 left-0 transition-opacity duration-300 ease-out flex flex-col items-center group cursor-pointer pointer-events-auto"
+            className="vault-label absolute top-0 left-0 transition-opacity duration-300 ease-out flex flex-col items-center group cursor-pointer pointer-events-auto"
             onMouseEnter={() => setActiveLabel(label.text)}
             onMouseLeave={() => setActiveLabel(null)}
           >
@@ -250,6 +297,11 @@ export const WellpathScene: React.FC = () => {
             </div>
           </div>
         ))}
+      </div>
+
+      <div className="wellpath-caption">
+        <b>Encrypted Vault &middot; Automated Follow-ups &middot; Secure Pathways</b>
+        <p>Interactive ecosystem graph mapping verified health programs, encrypted data nodes, and automated referral pathways.</p>
       </div>
     </div>
   );
