@@ -8,7 +8,7 @@ interface LabelInfo {
 }
 
 const FEATURE_LABELS: LabelInfo[] = [
-  { text: 'Goal & Barrier Intake', sub: 'Queensland User Input', nodeIndex: 0 },
+  { text: 'Goal & Barrier Intake', sub: 'Client Input', nodeIndex: 0 },
   { text: 'Explainable Engine', sub: 'Program Matching', nodeIndex: 5 },
   { text: 'Encrypted Vault', sub: 'Secure Health Data', nodeIndex: 11 },
   { text: 'Closed-Loop Milestone', sub: 'Automated Follow-up', nodeIndex: 18 },

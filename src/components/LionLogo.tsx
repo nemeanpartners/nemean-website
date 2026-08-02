@@ -63,7 +63,7 @@ export const LionLogo: React.FC<LionLogoProps> = ({ className = '', size = 42, s
             NEMEAN PARTNERS
           </span>
           <span className="text-[10px] font-bold tracking-widest text-[#d4af37]/80 uppercase">
-            Queensland Technology Company
+            Technology Company
           </span>
         </div>
       )}

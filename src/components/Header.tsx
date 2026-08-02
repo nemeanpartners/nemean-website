@@ -57,7 +57,7 @@ export const Header: React.FC<HeaderProps> = ({ activeTab, setActiveTab, logoUrl
                 NEMEAN PARTNERS
               </span>
               <span className="text-[10px] sm:text-[10.5px] tracking-[0.2em] text-[#d4af37]/90 font-mono font-semibold uppercase leading-tight">
-                QUEENSLAND TECHNOLOGY COMPANY
+                TECHNOLOGY COMPANY
               </span>
             </div>
           </div>

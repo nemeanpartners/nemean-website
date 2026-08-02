@@ -21,7 +21,7 @@ app.get("/api/health", (_req, res) => {
   res.json({
     status: "ok",
     company: "Nemean Partners Pty Ltd",
-    location: "Brisbane, Queensland",
+    location: "Brisbane, Australia",
     abn: "55 692 594 228",
     timestamp: new Date().toISOString()
   });
@@ -61,19 +61,19 @@ app.post("/api/wellpath/match", async (req, res) => {
   const fallbackPrograms = [
     {
       id: "prog-01",
-      title: "My health for Life (Queensland Preventive Health)",
-      provider: "Diabetes Queensland / Queensland Health Network",
+      title: "My health for Life Preventive Health",
+      provider: "Preventive Health Network",
       category: goal || "Preventive Health & Lifestyle",
-      cost: "Free (Queensland Government Funded)",
-      delivery: telehealthPreferred ? "Virtual & Local Groups" : "In-Person (Brisbane Metro & Regional QLD)",
+      cost: "Free",
+      delivery: telehealthPreferred ? "Virtual & Local Groups" : "In-Person or Local Groups",
       matchScore: 96,
-      explainability: "Matches your health goal and preferred delivery method. Fully supported free Queensland preventive program.",
+      explainability: "Matches your health goal and preferred delivery method. Fully supported free preventive program.",
       nextAction: "Generate referral token for registration"
     },
     {
       id: "prog-02",
-      title: "10,000 Steps Queensland Engagement Tracker",
-      provider: "CQUniversity & Health and Wellbeing Queensland",
+      title: "10,000 Steps Engagement Tracker",
+      provider: "Health and Wellbeing Network",
       category: "Physical Activity & Fitness Routine",
       cost: "Free",
       delivery: "Digital / Mobile App Access",
@@ -83,8 +83,8 @@ app.post("/api/wellpath/match", async (req, res) => {
     },
     {
       id: "prog-03",
-      title: "Quitline Queensland Personal Health Coach",
-      provider: "Queensland Health",
+      title: "Quitline Personal Health Coach",
+      provider: "Health Service Provider",
       category: "Health Habit Transformation",
       cost: "Free",
       delivery: "Telehealth & SMS Navigator Support",
@@ -98,13 +98,13 @@ app.post("/api/wellpath/match", async (req, res) => {
     try {
       const response = await ai.models.generateContent({
         model: "gemini-2.5-flash",
-        contents: `You are WellPath's explainable matching engine developed by Nemean Partners Pty Ltd for Queensland health navigation.
+        contents: `You are WellPath's explainable matching engine developed by Nemean Partners Pty Ltd for health navigation.
 User Health Goal: "${goal || 'General Wellbeing'}"
 Location/Postcode: "${location || 'Brisbane 4000'}"
 Access Needs: "${accessNeeds || 'Flexible'}"
 Telehealth Preferred: ${telehealthPreferred ? 'Yes' : 'No'}
 
-Generate 3 realistic, verified free or low-cost Queensland preventive health program matches in JSON array format:
+Generate 3 realistic, verified free or low-cost preventive health program matches in JSON array format:
 [
   {
     "id": "prog-1",
@@ -129,7 +129,7 @@ Return ONLY valid JSON array with no markdown code blocks.`
           success: true,
           matchMethod: "Gemini AI Bounded Matcher",
           programs: parsed,
-          syntheticNotice: "Demonstration users, referrals and outcome figures are synthetic. No Queensland Government partnership or endorsement is implied. Proposed for the 2026 Private Sector Pathways health challenge."
+          syntheticNotice: "Demonstration users, referrals and outcome figures are synthetic. No government partnership or endorsement is implied. Proposed for the 2026 Private Sector Pathways health challenge."
         });
       }
     } catch (e) {
@@ -141,7 +141,7 @@ Return ONLY valid JSON array with no markdown code blocks.`
     success: true,
     matchMethod: "Rule-Based Explainable Matcher Engine",
     programs: fallbackPrograms,
-    syntheticNotice: "Demonstration users, referrals and outcome figures are synthetic. No Queensland Government partnership or endorsement is implied. Proposed for the 2026 Private Sector Pathways health challenge."
+    syntheticNotice: "Demonstration users, referrals and outcome figures are synthetic. No government partnership or endorsement is implied. Proposed for the 2026 Private Sector Pathways health challenge."
   });
 });
 

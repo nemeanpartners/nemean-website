@@ -32,12 +32,12 @@ export const Footer: React.FC<FooterProps> = ({ setActiveTab, onOpenTrustModal, 
                   NEMEAN PARTNERS
                 </span>
                 <span className="text-[9.5px] tracking-[0.18em] text-[#d4af37]/80 font-mono uppercase leading-tight">
-                  QUEENSLAND TECH
+                  TECHNOLOGY COMPANY
                 </span>
               </div>
             </div>
             <p style={{ fontSize: '12.5px', color: 'var(--text-dim)', maxWidth: '280px', lineHeight: '1.7' }}>
-              Queensland technology company designing cloud software, AI tools and digital platforms for health, education, communication and service organisations.
+              Technology company designing cloud software, AI tools and digital platforms for health, education, communication and service organisations.
             </p>
           </div>
 
@@ -89,14 +89,14 @@ export const Footer: React.FC<FooterProps> = ({ setActiveTab, onOpenTrustModal, 
             <h5>Contact</h5>
             <a href={`mailto:${COMPANY_INFO.email}?subject=Nemean%20Partners%20Enquiry`}>{COMPANY_INFO.email}</a>
             <button onClick={() => scrollToSection('contact', 'contact')} className="bg-transparent border-0 text-left block text-[13px] text-[#9c9488] hover:text-[#f3ead9] transition-colors mb-2 cursor-pointer">
-              Brisbane, QLD 4064
+              Brisbane 4064
             </button>
           </div>
         </div>
 
         <div className="footer-bottom">
           <span>&copy; 2026 Nemean Partners Pty Ltd. ABN 55 692 594 228.</span>
-          <span>Designed &amp; engineered in Queensland, Australia.</span>
+          <span>Designed &amp; engineered for scalable digital products.</span>
         </div>
       </div>
     </footer>

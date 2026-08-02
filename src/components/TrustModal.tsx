@@ -96,7 +96,7 @@ export const TrustModal: React.FC<TrustModalProps> = ({ type, onClose }) => {
 
             <h5 className="font-bold text-amber-300 text-xs">3. Governing Law</h5>
             <p>
-              These terms are governed by the laws of Queensland, Australia. Any disputes shall be submitted to the exclusive jurisdiction of the courts of Queensland.
+              These terms are governed by the applicable laws of Australia. Any disputes shall be handled through the appropriate Australian jurisdiction.
             </p>
           </div>
         );
@@ -161,7 +161,7 @@ export const TrustModal: React.FC<TrustModalProps> = ({ type, onClose }) => {
                 <span>ABN Registration Status</span>
               </div>
               <p>
-                The ABN is active and lists the main business location as Queensland 4064. Website updated following GST registration finalisation.
+                The ABN is active and business records are maintained following GST registration finalisation.
               </p>
             </div>
           </div>

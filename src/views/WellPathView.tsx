@@ -48,7 +48,7 @@ export const WellPathView: React.FC = () => {
   };
 
   const handleActionReferral = (prog: ProgramMatch) => {
-    const token = `WP-QLD-${Math.floor(100000 + Math.random() * 900000)}`;
+    const token = `WP-${Math.floor(100000 + Math.random() * 900000)}`;
     setActiveReferral({
       programId: prog.id,
       token,
@@ -63,7 +63,7 @@ export const WellPathView: React.FC = () => {
       <div className="text-center space-y-4 max-w-4xl mx-auto pt-6">
         <div className="inline-flex items-center space-x-2 bg-[#d4af37]/20 text-[#d4af37] px-4 py-1.5 rounded-full text-xs font-bold border border-[#d4af37]/30">
           <Activity className="w-4 h-4" />
-          <span>Health Platform Project • Queensland Pilot</span>
+          <span>Health Platform Project • Pilot</span>
         </div>
 
         <h1 className="text-3xl sm:text-5xl font-black font-heading text-white">
@@ -81,7 +81,7 @@ export const WellPathView: React.FC = () => {
         {/* Live Standalone Platform Link */}
         <div className="pt-3 flex flex-wrap items-center justify-center gap-4">
           <a
-            href="https://wellpath-queensland.ai.studio"
+            href="#"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center space-x-2 bg-[#d4af37] hover:bg-[#b8860b] text-black font-extrabold text-sm px-8 py-3.5 rounded-full shadow-xl transition-all"
@@ -126,7 +126,7 @@ export const WellPathView: React.FC = () => {
           </div>
 
           <div className="text-xs text-neutral-400 bg-black/60 px-3 py-1.5 rounded-lg border border-neutral-800">
-            Engine: Bounded Rules + QLD Directory
+            Engine: Bounded Rules + Program Directory
           </div>
         </div>
 
@@ -150,7 +150,7 @@ export const WellPathView: React.FC = () => {
 
           <div className="md:col-span-3 space-y-2">
             <label className="text-xs font-bold uppercase text-amber-300 block">
-              2. QLD Postcode / Suburb
+              2. Postcode / Suburb
             </label>
             <input
               type="text"
@@ -203,7 +203,7 @@ export const WellPathView: React.FC = () => {
           <div className="space-y-6 pt-4 animate-fade-in">
             <div className="flex items-center justify-between">
               <h3 className="text-sm font-bold uppercase tracking-wider text-amber-400">
-                Matched Queensland Preventive Health Programs
+                Matched Preventive Health Programs
               </h3>
               <span className="text-xs text-emerald-400 font-semibold">
                 {matchedPrograms.length} Verified Options Found
@@ -364,7 +364,7 @@ export const WellPathView: React.FC = () => {
                 ✓ Goal: Reduce Chronic Risk
               </div>
               <div className="p-2 bg-neutral-900 rounded text-neutral-300">
-                📍 Location: QLD 4064
+                Location: 4064
               </div>
               <div className="p-2 bg-neutral-900 rounded text-neutral-300">
                 💲 Cost: Free Programs Only
@@ -384,7 +384,7 @@ export const WellPathView: React.FC = () => {
                 <span className="text-emerald-400">96%</span>
               </div>
               <p className="text-[11px] text-neutral-400">
-                Matched because it provides verified local coaching in Queensland with zero cost.
+                Matched because it provides verified local coaching with zero cost.
               </p>
             </div>
           </div>

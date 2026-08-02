@@ -18,11 +18,11 @@ const PRODUCTS_DATA: ProductItem[] = [
     id: "wellpath",
     name: "WellPath",
     subtitle: "Closed-loop preventive-health navigation",
-    desc: "Connects Queenslanders with verified free or low-cost preventive health programs through intelligent navigation.",
+    desc: "Connects clients with verified free or low-cost preventive health programs through intelligent navigation.",
     category: "Preventive Health & Care Navigation",
-    badge: "Queensland Pilot Platform",
+    badge: "Pilot Platform",
     badgeColor: "gold",
-    url: "https://wellpath-queensland.ai.studio",
+    url: "#",
     feats: ["Closed-loop goal tracking & referral milestones", "Explainable program matching by access & cost"],
     tech: ["Intelligent matching engine", "Encrypted user vault", "Automated follow-ups"],
     initial: "W"
@@ -74,7 +74,7 @@ const PRODUCTS_DATA: ProductItem[] = [
     category: "Networking & Discovery",
     badge: "Live Web Platform",
     badgeColor: "teal",
-    url: "https://clickdin.qld.one",
+    url: "#",
     feats: ["Verified local business directory", "Interactive connection pipeline & messaging"],
     tech: ["Directory graph DB", "Encrypted messaging", "Trust scoring engine"],
     initial: "C"
@@ -157,12 +157,12 @@ export const HomeView: React.FC<HomeViewProps> = ({ logoUrl }) => {
         <HeroScene />
         <div className="hero-fade" />
         <div className="hero-inner">
-          <span className="eyebrow">Nemean Partners Pty Ltd &middot; Queensland, Australia</span>
+          <span className="eyebrow">Nemean Partners Pty Ltd</span>
           <h1 className="hero-title">
             Building practical technology<br /> for <em>complex human problems</em>
           </h1>
           <p className="hero-sub">
-            Queensland-built cloud software, artificial intelligence tools and digital platforms for health, education, communication and service-based organisations.
+            Cloud software, artificial intelligence tools and digital platforms for health, education, communication and service-based organisations.
           </p>
           <div className="hero-actions">
             <button
@@ -193,7 +193,7 @@ export const HomeView: React.FC<HomeViewProps> = ({ logoUrl }) => {
         <div className="wrap">
           <div className="section-head reveal in">
             <span className="eyebrow">Company profile &amp; governance</span>
-            <h2>Developed in Queensland.<br />Designed to scale.</h2>
+            <h2>Developed with purpose.<br />Designed to scale.</h2>
             <p>
               Nemean Partners Pty Ltd develops practical digital platforms that improve how people access services, communicate, learn and manage everyday workflows.
             </p>
@@ -201,12 +201,12 @@ export const HomeView: React.FC<HomeViewProps> = ({ logoUrl }) => {
 
           <div className="about-grid">
             <div className="card about-philosophy reveal in">
-              <h3>Queensland Software &amp; AI Engineering</h3>
+              <h3>Software &amp; AI Engineering</h3>
               <p>
                 We combine product design, cloud software, automation and responsible artificial intelligence to turn complex processes into accessible, scalable applications.
               </p>
               <p>
-                Our products are developed in Queensland and designed for secure cloud deployment, mobile access and future commercial scale.
+                Our products are designed for secure cloud deployment, mobile access and future commercial scale.
               </p>
               <p>
                 We fuse creativity, engineering and purpose to produce meaningful digital experiences — every app is built to feel supportive, secure and beautifully designed.
@@ -232,7 +232,7 @@ export const HomeView: React.FC<HomeViewProps> = ({ logoUrl }) => {
               <div className="text-xs sm:text-sm font-semibold text-[#e5c158] tracking-[0.14em] mb-6 font-sans uppercase flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-3">
                 <span>ABN: 55 692 594 228</span>
                 <span className="hidden sm:inline text-white/30">&bull;</span>
-                <span>MILTON, BRISBANE QLD 4064</span>
+                <span>BRISBANE 4064</span>
               </div>
 
               <div className="w-4/5 border-t border-white/10 my-2" />
@@ -242,7 +242,7 @@ export const HomeView: React.FC<HomeViewProps> = ({ logoUrl }) => {
                   <path d="M12 21s7-6.2 7-11.5A7 7 0 005 9.5C5 14.8 12 21 12 21z" />
                   <circle cx="12" cy="9.5" r="2.5" />
                 </svg>
-                <span>MILTON, BRISBANE, QUEENSLAND</span>
+                <span>BRISBANE, AUSTRALIA</span>
               </div>
             </div>
           </div>
@@ -369,10 +369,10 @@ export const HomeView: React.FC<HomeViewProps> = ({ logoUrl }) => {
 
             <div className="wellpath-visual reveal in">
               <WellpathScene />
-              <span className="wellpath-badge badge badge-gold">Queensland Pilot Platform</span>
+              <span className="wellpath-badge badge badge-gold">Pilot Platform</span>
               <div className="wellpath-caption">
                 <b>Encrypted Vault &middot; Automated Follow-ups &middot; Secure Pathways</b>
-                <p>Interactive ecosystem graph mapping verified health programs, encrypted data nodes, and automated referral pathways across Queensland.</p>
+                <p>Interactive ecosystem graph mapping verified health programs, encrypted data nodes, and automated referral pathways.</p>
               </div>
             </div>
           </div>

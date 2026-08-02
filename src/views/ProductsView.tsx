@@ -50,7 +50,7 @@ export const ProductsView: React.FC<ProductsViewProps> = ({ setActiveTab }) => {
           The Core Ecosystem
         </h1>
         <p className="text-sm sm:text-base text-white/70 leading-relaxed">
-          Explore our portfolio of production cloud applications, computer vision tools, healthcare platforms, and business automation software built in Queensland.
+          Explore our portfolio of production cloud applications, computer vision tools, healthcare platforms, and business automation software.
         </p>
       </motion.div>
 

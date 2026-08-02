@@ -57,7 +57,7 @@ export const ContactView: React.FC = () => {
               <div>
                 <span className="text-neutral-500 font-bold block text-[10px] uppercase">Official Website</span>
                 <a href={COMPANY_INFO.website} target="_blank" rel="noopener noreferrer" className="font-semibold text-amber-300 hover:underline">
-                  nemeanpartners.qld.one
+                  nemean-partners.ai.studio
                 </a>
               </div>
             </div>

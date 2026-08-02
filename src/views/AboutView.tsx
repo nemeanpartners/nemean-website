@@ -30,7 +30,7 @@ export const AboutView: React.FC = () => {
         <div className="lg:col-span-7 bg-neutral-900/80 p-8 rounded-3xl border border-neutral-800 space-y-6 flex flex-col justify-between shadow-2xl">
           <div className="space-y-4">
             <h2 className="text-xl sm:text-2xl font-bold font-heading text-amber-200">
-              Queensland Software & AI Engineering
+              Software & AI Engineering
             </h2>
 
             <p className="text-sm text-neutral-300 leading-relaxed">
@@ -89,7 +89,7 @@ export const AboutView: React.FC = () => {
                 <span className="text-neutral-400">Location Base</span>
                 <span className="font-semibold text-neutral-200 flex items-center space-x-1">
                   <MapPin className="w-3 h-3 text-amber-500" />
-                  <span>Brisbane, Queensland 4064</span>
+                  <span>Brisbane 4064</span>
                 </span>
               </div>
 
@@ -106,7 +106,7 @@ export const AboutView: React.FC = () => {
               <span>Registration Note</span>
             </div>
             <p>
-              The ABN is active and lists the main business location as Queensland 4064. Website updated following GST registration finalisation.
+              The ABN is active and business records are maintained following GST registration finalisation.
             </p>
           </div>
         </div>

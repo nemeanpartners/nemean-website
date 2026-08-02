@@ -15,8 +15,8 @@ export const WELLPATH_JOURNEY_STEPS: WellPathJourneyStep[] = [
     title: "Enter Location & Access Needs",
     subtitle: "Suburb, transport, cost & format preferences",
     description: "Captures postcode/suburb, preferred delivery mode (telehealth vs. local in-person clinic), zero-cost preferences, and mobility or schedule constraints.",
-    userAction: "Enter QLD postcode (e.g., 4000, 4217, 4810) and availability filters",
-    systemAction: "Queries verified Queensland preventive health directory database",
+    userAction: "Enter postcode, suburb and availability filters",
+    systemAction: "Queries verified preventive health directory database",
     barrierResolution: "Ensures only accessible programs within realistic reach are surfaced"
   },
   {
