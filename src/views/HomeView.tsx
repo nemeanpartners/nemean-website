@@ -215,35 +215,19 @@ export const HomeView: React.FC<HomeViewProps> = ({ logoUrl }) => {
               <AnimatedCounters inline={true} />
             </div>
 
-            {/* Metallic Entity Registry Card - Image 3 Style */}
+            {/* Company identity card */}
             <div className="metallic-card rounded-3xl p-8 sm:p-10 flex flex-col items-center text-center reveal in group">
               <div className="mb-4">
                 <LionSealLogo size={80} showGlow={true} subtext="PARTNERS" imageUrl={logoUrl} />
               </div>
 
               <span className="text-[11px] font-semibold tracking-[0.25em] text-[#8e877c] uppercase mb-2 font-sans">
-                OFFICIAL COMPANY REGISTRY
+                SOFTWARE COMPANY
               </span>
 
               <h4 className="text-2xl sm:text-3xl md:text-4xl font-black text-white tracking-[0.18em] my-2 font-sans uppercase">
                 NEMEAN PARTNERS
               </h4>
-
-              <div className="text-xs sm:text-sm font-semibold text-[#e5c158] tracking-[0.14em] mb-6 font-sans uppercase flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-3">
-                <span>ABN: 55 692 594 228</span>
-                <span className="hidden sm:inline text-white/30">&bull;</span>
-                <span>BRISBANE 4064</span>
-              </div>
-
-              <div className="w-4/5 border-t border-white/10 my-2" />
-
-              <div className="pt-3 text-sm font-bold tracking-[0.18em] text-[#d4af37] flex items-center justify-center gap-2 uppercase font-sans">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" className="text-[#d4af37]">
-                  <path d="M12 21s7-6.2 7-11.5A7 7 0 005 9.5C5 14.8 12 21 12 21z" />
-                  <circle cx="12" cy="9.5" r="2.5" />
-                </svg>
-                <span>BRISBANE 4064</span>
-              </div>
             </div>
           </div>
         </div>

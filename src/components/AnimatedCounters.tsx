@@ -48,8 +48,8 @@ const StatItem: React.FC<StatItemProps> = ({ target, label }) => {
 export const AnimatedCounters: React.FC<{ inline?: boolean }> = ({ inline = false }) => {
   return (
     <div className={inline ? "stat-grid-inline" : "stat-grid reveal in"}>
-      <StatItem target={6} label="Products shipped" />
-      <StatItem target={1} label="App Store release" />
+      <StatItem target={7} label="Products shipped" />
+      <StatItem target={2} label="App Store releases" />
       <StatItem target={3} label="In development" />
       <StatItem target={2025} label="Founded" />
     </div>
