@@ -199,35 +199,30 @@ export const HomeView: React.FC<HomeViewProps> = ({ logoUrl }) => {
             </p>
           </div>
 
-          <div className="about-grid">
-            <div className="card about-philosophy reveal in">
-              <h3>Software &amp; AI Engineering</h3>
-              <p>
-                We combine product design, cloud software, automation and responsible artificial intelligence to turn complex processes into accessible, scalable applications.
-              </p>
-              <p>
-                Our products are designed for secure cloud deployment, mobile access and future commercial scale.
-              </p>
-              <p>
-                We fuse creativity, engineering and purpose to produce meaningful digital experiences — every app is built to feel supportive, secure and beautifully designed.
-              </p>
-
-              <AnimatedCounters inline={true} />
+          <div className="company-profile-card metallic-card reveal in">
+            <div className="company-profile-identity">
+              <LionSealLogo size={82} showGlow={true} subtext="PARTNERS" imageUrl={logoUrl} />
+              <div>
+                <span className="company-profile-kicker">Software Company</span>
+                <h3>Nemean Partners</h3>
+              </div>
             </div>
 
-            {/* Company identity card */}
-            <div className="metallic-card rounded-3xl p-8 sm:p-10 flex flex-col items-center text-center reveal in group">
-              <div className="mb-4">
-                <LionSealLogo size={80} showGlow={true} subtext="PARTNERS" imageUrl={logoUrl} />
+            <div className="company-profile-body">
+              <div className="about-philosophy">
+                <h4>Software &amp; AI Engineering</h4>
+                <p>
+                  We combine product design, cloud software, automation and responsible artificial intelligence to turn complex processes into accessible, scalable applications.
+                </p>
+                <p>
+                  Our products are designed for secure cloud deployment, mobile access and future commercial scale.
+                </p>
+                <p>
+                  We fuse creativity, engineering and purpose to produce meaningful digital experiences — every app is built to feel supportive, secure and beautifully designed.
+                </p>
               </div>
 
-              <span className="text-[11px] font-semibold tracking-[0.25em] text-[#8e877c] uppercase mb-2 font-sans">
-                SOFTWARE COMPANY
-              </span>
-
-              <h4 className="text-2xl sm:text-3xl md:text-4xl font-black text-white tracking-[0.18em] my-2 font-sans uppercase">
-                NEMEAN PARTNERS
-              </h4>
+              <AnimatedCounters inline={true} />
             </div>
           </div>
         </div>
